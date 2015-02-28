@@ -7,7 +7,7 @@
 			<meta name="author" content="khinenw, onebone">
 			<link rel="stylesheet" type="text/css" href="mainStyle.css">
 	</head>
-	
+	<!-- now the layout is strange. will be fixed -->
 	<script type="text/javascript">
 	const WELCOME = "환영합니다!\nここへようこそ！\nhuanying guanglin";
 	
@@ -17,14 +17,39 @@
 	</script>
 	
 	<body>
-		<div id="main">
-			
+		<header id = "header">
 			<h1>3-4반에 오신걸 환영합니다!</h1>
 			<p>ここへようこそ!</p>
 			<p> huanying guanglin </p>
+		</header>
 		
-		</div>
+		<nav id = "navigation">
+			<ul>
+				<li><a> | </a></li>
+				<li><a class="link" href="about.html">About 3-4</a></li>
+				<!-- 간단한 학급 소개를 보여줌-->
+				<li><a> | </a></li>
+				<li><a class="link" href="calendar.html">Calendar</a></li>
+				<!-- 캘린더 : 급식, 학사일정, 시간표 등을 파싱해서 보여줌-->
+				<li><a> | </a></li>
+				<li><a class="link" href="todo.html">Todo</a></li>
+				<!-- 숙제나 해가야 할 가정통신문 등을 보며줌-->
+				<li><a> | </a></li>
+				<li><a class="link" href="docs.html">Documents</a></li>
+				<!-- 기타 문서들을 보여줌-->
+				<li><a> | </a></li>
+			</ul>
+		</nav>
 		
-			<button id="click_here_1">Hello World! Click here</button>
+		<footer id = "footer">
+		
+			<p>
+				<a>Hosted by github.com<br>
+				by onebone, Khinenw</a>
+			</p>
+			<a>Project 3-4 on <a href = "https://github.com/eoeun/eoeun,github.io.git" class= "link">Github</a></a>
+		</footer>
+		
+		<!--	<button id="click_here_1">Hello World! Click here</button> -->
 	</body>
 </html>
