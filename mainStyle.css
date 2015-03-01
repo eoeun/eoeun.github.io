@@ -18,16 +18,15 @@ body{
 
 #navigation{
 	height: 50px;
-	width: 640px;
-	
+	display: inline-block;
 }
 
 #navigation ul li{
-	margin: 10px;
+	margin: 20px;
 	list-style: none;
 	color: #FFFFFF;
 	float: left;
-	line-height:50px;
+	/*line-height:50px;*/
 	vertical-align: middle;
 	text-align: center;
 }
@@ -39,6 +38,10 @@ body{
 	color: #FFFFFF;
 	font-weight: bold;
 }
+
+/*#navigation .start{
+	margin: 0px;
+}*/
 
 #navigation .link:hover{
 	color: #0080FF
@@ -73,9 +76,8 @@ body{
 	color: #0080FF;
 }
 
-#footer a{
+#footer a {
 	font-family : "Ubuntu";
 	font-size: 7pt;
 	color: #FFFFFF;
-	text-align: center;
 }

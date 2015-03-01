@@ -5,51 +5,57 @@
 			<meta charset="utf-8"/>
 			<meta name="description" content="Eoeun Middle School 3-4 page">
 			<meta name="author" content="khinenw, onebone">
+			<meta name="google-site-verification" content="2UXFgwAb75v_fCYwB6V_Ue5rMFlI_oJIXrtzwMkp6ag" />
 			<link rel="stylesheet" type="text/css" href="mainStyle.css">
 	</head>
 	<!-- now the layout is strange. will be fixed -->
 	<script type="text/javascript">
-	const WELCOME = "환영합니다!\nここへようこそ！\nhuanying guanglin";
+	const WELCOME = "환영합니다!\nここへようこそ！\nhuanying guanglin\nThis page is under construction.";
 	
 	window.onload = function(){
+		resizeScreen();
 		alert(WELCOME);
 	};
 	</script>
 	
-	<body>
+	<script src="showMenu.js"></script>
+	<script src="autoSize.js"></script>
+	
+	<body onresize="resizeScreen()">
 		<header id = "header">
-			<h1>3-4반에 오신걸 환영합니다!</h1>
-			<p>ここへようこそ!</p>
-			<p> huanying guanglin </p>
+			<h1 id="title">3-4반에 오신걸 환영합니다!</h1>
+			<p>
+				3年4組へようこそ!
+				<br>
+				Welcome to 3-4!
+				<br>
+				huanying guanglin </p>
 		</header>
 		
 		<nav id = "navigation">
-			<ul>
-				<li><a> | </a></li>
+			<ul id = "navigationList">
 				<li><a class="link" href="about.html">About 3-4</a></li>
 				<!-- 간단한 학급 소개를 보여줌-->
-				<li><a> | </a></li>
 				<li><a class="link" href="calendar.html">Calendar</a></li>
 				<!-- 캘린더 : 급식, 학사일정, 시간표 등을 파싱해서 보여줌-->
-				<li><a> | </a></li>
 				<li><a class="link" href="todo.html">Todo</a></li>
 				<!-- 숙제나 해가야 할 가정통신문 등을 보며줌-->
-				<li><a> | </a></li>
-				<li><a class="link" href="docs.html">Documents</a></li>
+				<li><a class="link" href="javascript:showDocument()">Documents</a></li>
 				<!-- 기타 문서들을 보여줌-->
-				<li><a> | </a></li>
 			</ul>
 		</nav>
 		
 		<footer id = "footer">
-		
 			<p>
-				<a>Hosted by github.com<br>
-				by onebone, Khinenw</a>
+				<a>Hosted by github.com</a>
+				<br>
+				<a>by onebone, Khinenw</a>
 			</p>
 			<a>Project 3-4 on <a href = "https://github.com/eoeun/eoeun,github.io.git" class= "link">Github</a></a>
 		</footer>
 		
 		<!--	<button id="click_here_1">Hello World! Click here</button> -->
+		<!-- HTML TEST AREA-->
+		<p id="test">TEST</p>
 	</body>
 </html>
