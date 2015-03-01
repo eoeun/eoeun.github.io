@@ -67,6 +67,8 @@ body{
 #footer {
 	background: #505050;
 	text-align: center;
+	-webkit-transition:  -webkit-transform 2s;
+	transition: transform 2s;
 }
 
 #footer .link{
