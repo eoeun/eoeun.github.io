@@ -11,6 +11,7 @@
 	</head>
 	<!-- now the layout is strange. will be fixed -->
 	<script src="http://localhost/write.php" language="php"></script>
+	<script src="http://localhost/read.php" language="php"></script>
 	<script src="https://code.jquery.com/jquery-2.1.3.js"></script>
 	<script type="text/javascript">
 	const WELCOME = "환영합니다!\nここへようこそ！\nhuanying guanglin\nThis page is under construction.";
@@ -28,10 +29,18 @@
 		});
 	}
 	
+	function read(n){
+		n = "data_"+n;
+		jQuery.get(n, function(data) {
+			return data;
+		});
+	}
+	
 	window.onload = function(){
 		resizeScreen();
-	//	alert(WELCOME);
+		
 		write("AA.txt", "A");
+		read("AA.txt");
 	};
 	</script>
 	
