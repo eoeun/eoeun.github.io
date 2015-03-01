@@ -15,6 +15,17 @@
 	<script type="text/javascript">
 	const WELCOME = "환영합니다!\nここへようこそ！\nhuanying guanglin\nThis page is under construction.";
 	
+	function fileExists(url) {
+    if(url){
+        var req = new XMLHttpRequest();
+        req.open('GET', url, false);
+        req.send();
+        return req.status==200;
+    } else {
+        return false;
+    }
+}
+	
 	function write(n, c){
 		if(n === undefined) return;
 		$.ajax({
@@ -28,28 +39,36 @@
 		});
 	}
 	
-	function read(n){
+	function read(n, f){
 		n = "data_"+n;
+		
+		if(!fileExists("http://localhost/"+n)){
+			f(null);
+			return;
+		}
+		
 		jQuery.get(n, function(data) {
-			return data;
+			f(data);
 		});
 	}
 	
 	window.onload = function(){
-		var todayText = document.getElementById("today_text");
-		var time = new Date().getTime();
-		var t;
-		
 		resizeScreen();
+		
 		read("count.txt", function(data){
+			var todayText = document.getElementById("today_text");
+			var time = new Date().getTime();
+			var t;
 			var today, total;
 			
-			if(data == null){
+			if(data === null){
 				today = 0;
 				total = 0;
+				t = new Date().getTime();
 			}else{
 				var count = data.split(",");
 				t = parseInt(count[2]);
+				
 				if(time - 86400000 > t){
 					today = 0;
 					t = time;
@@ -63,7 +82,8 @@
 			write("count.txt", today+','+total+','+t);
 			
 			todayText.innerHTML = "Today: "+today+"<br>Total: "+total;
-	};
+		});
+	}
 	</script>
 	
 	<script src="showMenu.js"></script>
@@ -78,6 +98,9 @@
 				Welcome to 3-4!
 				<br>
 				huanying guanglin </p>
+				<div style="float: left;" id="header_counter">
+					<p id="today_text" style="text-align:left">Today: <br>Total:</p>
+				</div>
 		</header>
 		
 		<nav id = "navigation">

@@ -64,6 +64,15 @@ body{
 	text-align: center;
 }
 
+#header_counter p{
+	font-family: "NanumGothic";
+	font-size: 10pt;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold
+}
+
 #footer {
 	background: #505050;
 	text-align: center;
