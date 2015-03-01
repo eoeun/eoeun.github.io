@@ -36,10 +36,33 @@
 	}
 	
 	window.onload = function(){
-		resizeScreen();
+		var todayText = document.getElementById("today_text");
+		var time = new Date().getTime();
+		var t;
 		
-		write("AA.txt", "A");
-		read("AA.txt");
+		resizeScreen();
+		read("count.txt", function(data){
+			var today, total;
+			
+			if(data == null){
+				today = 0;
+				total = 0;
+			}else{
+				var count = data.split(",");
+				t = parseInt(count[2]);
+				if(time - 86400000 > t){
+					today = 0;
+					t = time;
+				}else{
+					today = parseInt(count[0]);
+				}
+				total = parseInt(count[1]);
+			}
+			today++;
+			total++;
+			write("count.txt", today+','+total+','+t);
+			
+			todayText.innerHTML = "Today: "+today+"<br>Total: "+total;
 	};
 	</script>
 	
