@@ -1,16 +1,16 @@
 "use strict";
 function resizeScreen(){
-	document.getElementById("test").innerHTML = window.innerWidth + "," + window.innerHeight;
+	//document.getElementById("test").innerHTML = window.innerWidth + "," + window.innerHeight;
 	
 	var navigation = document.getElementById("navigationList").children;
-	if(window.innerWidth < 570){
+	if(window.innerWidth < 730){
 		for(var i = 0; i < navigation.length; i++){
-			navigation[i].style.cssFloat = "none"
+			navigation[i].style.display="block";
 		}
 		
 	}else{
 		for(var i = 0; i < navigation.length; i++){
-			navigation[i].style.cssFloat="left"
+			navigation[i].style.display="inline"
 		}
 	}
 	
