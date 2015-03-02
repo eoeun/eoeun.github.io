@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+	<title>Login</title>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="description" content="Eoeun Middle School 3-4 page">
+		<meta name="author" content="khinenw, onebone">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<style type="text/css">
+			@font-face {
+				font-family: "Ubuntu";
+				src: url("resources/Ubuntu-R.ttf");
+			
+			}
+			@font-face {
+				font-family: "NanumGothic";
+				src: url("resources/NanumGothic.ttf");
+			}
+			
+			section h1{
+				font-family : "Ubuntu";
+				display:inline-block;
+				width:100%;
+				font-size: 30pt;
+				color: #0080FF;
+				text-align: left;
+			}
+			
+			section p{
+				font-family : "NanumGothic";
+				text-align: left;
+				font-size: 10pt;
+				color: #707070;
+			}
+			
+			body{
+				background: #303030;
+				margin: 30px;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			function resize(){
+				var login = document.getElementById("login");
+				var sectionW = login.clientWidth;
+				var sectionH = login.clientHeight;
+				var wm = (window.innerWidth - sectionW) / 2;
+				var hm = (window.innerHeight - sectionH) / 2;
+				document.getElementsByTagName("body")[0].style.margin = wm + " " + hm;
+				print(wm + " " + hm);
+			}
+			
+			window.onload = function(){
+				resize();
+			}
+		</script>
+	</head>
+	<body onresize=resize()>
+		<section id="login">
+			<h1>Login!</h1>
+			<p>ID와 비밀번호를 입력하여 주십시오!</p>
+		</section>
+	</body>
+</html>

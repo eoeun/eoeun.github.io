@@ -54,43 +54,16 @@
 	
 	window.onload = function(){
 		resizeScreen();
-		
-		read("count.txt", function(data){
-			var todayText = document.getElementById("today_text");
-			var time = new Date().getTime();
-			var t;
-			var today, total;
-			
-			if(data === null){
-				today = 0;
-				total = 0;
-				t = new Date().getTime();
-			}else{
-				var count = data.split(",");
-				t = parseInt(count[2]);
-				
-				if(time - 86400000 > t){
-					today = 0;
-					t = time;
-				}else{
-					today = parseInt(count[0]);
-				}
-				total = parseInt(count[1]);
-			}
-			today++;
-			total++;
-			write("count.txt", today+','+total+','+t);
-			
-			todayText.innerHTML = "Today: "+today+"<br>Total: "+total;
-		});
+		todaySet();
 	}
 	</script>
 	
-	<script src="showMenu.js"></script>
-	<script src="autoSize.js"></script>
+	<script src="src/showMenu.js"></script>
+	<script src="src/autoSize.js"></script>
 	
 	<body onresize="resizeScreen()">
 		<header id = "header">
+			<a class="login" href="login.html">Login</a>
 			<h1 id="title">3-4반에 오신걸 환영합니다!</h1>
 			<p>
 				3年4組へようこそ!
@@ -98,9 +71,6 @@
 				Welcome to 3-4!
 				<br>
 				huanying guanglin </p>
-				<div style="float: left;" id="header_counter">
-					<p id="today_text" style="text-align:left">Today: <br>Total:</p>
-				</div>
 		</header>
 		
 		<nav id = "navigation">
@@ -129,17 +99,23 @@
 			</div>
 		</section>
 		
-		<aside id="sidebar">
-			
+		<aside id="sidebar" style="display:inline-block; float:left;">
+				<div style="float: left;" id="header_counter">
+					<p id="today_text" style="text-align:left">Today:<br>Total:</p>
+				</div>
 		</aside>
 		
 		<footer id = "footer">
+			<p id="m_today_text" class="today">Today:<br>Total:</p>
 			<p>
-				<a>Hosted by hostinger</a>
-				<br>
-				<a>by onebone, Khinenw</a>
+				<a>Hosted by wink.ws
+					<br>
+					by onebone, Khinenw</a>
 			</p>
 			<a>Project 3-4 on <a href = "https://github.com/eoeun/eoeun.github.io.git" class= "link">Github</a></a>
+			<br>
+			<a> 이 웹사이트는 나눔고딕, ubuntu를 사용하여 작성되었습니다.</a>
+			
 		</footer>
 		
 		<!--	<button id="click_here_1">Hello World! Click here</button> -->

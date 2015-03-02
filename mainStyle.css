@@ -52,9 +52,21 @@ body{
 
 #header h1{
 	font-family : "NanumGothic";
+	display:inline-block;
+	width:100%;
 	font-size: 30pt;
 	color: #0080FF;
 	text-align: center;
+}
+
+#header .login{
+	float:right;
+	color: #0080FF;
+	font-family: Ubuntu;
+	font-size:12pt;
+	display:list-item;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 #header p{
@@ -75,7 +87,9 @@ body{
 
 #footer {
 	background: #505050;
+	display:inline-block;
 	text-align: center;
+	width:100%;
 	-webkit-transition:  -webkit-transform 2s;
 	transition: transform 2s;
 }
@@ -90,8 +104,28 @@ body{
 	color: #0080FF;
 }
 
+#footer .today{
+	font-family: "NanumGothic";
+	font-size: 10pt;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align:center;
+}
+
 #footer a {
 	font-family : "Ubuntu";
 	font-size: 7pt;
 	color: #FFFFFF;
+}
+
+#document h1{
+	border-top: 3px dashed #0080FF;
+	font-family : "Ubuntu";
+	font-size: 30pt;
+	color: #0080FF;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
 }
