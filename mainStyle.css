@@ -69,6 +69,10 @@ body{
 	text-decoration: none;
 }
 
+#header .login:hover{
+	color: #FF8000
+}
+
 #header p{
 	font-family : "Ubuntu";
 	font-size: 15pt;
@@ -118,6 +122,10 @@ body{
 	font-family : "Ubuntu";
 	font-size: 7pt;
 	color: #FFFFFF;
+}
+
+#footer .nanum{
+	font-family: "NanumGothic";
 }
 
 #document h1{
