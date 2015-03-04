@@ -8,13 +8,53 @@
 	<head>
 	
 	</head>
+	<style type="text/css">
+		
+		@font-face {
+			font-family: "Ubuntu";
+			src: url("resources/Ubuntu-R.ttf");
+		}
+		.link{
+			display:inline;
+			color:#FF0000;
+			text-decoration: none;
+			font-face: "Ubuntu";
+			font-size:50pt;
+		}
+		
+		.link:hover{
+			color: #0080FF;
+		}
+		
+		.atlink{
+			display:inline;
+			color: #FF0000;
+			text-decoration: none;
+			font-size: 10pt;
+			font-face: "Ubuntu";
+		}
+		
+		.atlink2{
+			display:inline;
+			color: #FF0000;
+			text-decoration: none;
+			font-size: 10pt;
+			font-face: "Ubuntu";
+		}
+		
+		.atlink2:hover{
+			color: #0080FF;
+		}
+		
 	
+	</style>
 	<body>
 	<div style="float:left;">
-		<img src="data:image/jpeg;base64,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"></img>
+		<img src="https://41.media.tumblr.com/bf5c74f4807283bff6d5488b408c1eac/tumblr_n4nmq5Kqaj1sq4qw8o8_500.jpg"></img>
 	</div>
 	<div style="float:right;">
-		<p style="display:inline;">이 사이트 <p style="display:inline; color:red; font-size:100pt;">망함</p></p>
+		<a class="atlink">This site is <a class="link" href="https://mirror.enha.kr/wiki/%EB%A7%9D%ED%96%88%EC%96%B4%EC%9A%94">doomed</a></a>
+		<a class="atlink2" href="http://eoeun.pe.hu"><br>Come to new site!</a>
 	</div>
 	</body>
 
