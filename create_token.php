@@ -8,7 +8,7 @@
 	}
 	
 	for($i = 0; $i < 128; $i++){
-		$token .= $charArray[mt_rand(0, 127)];
+		$token .= $charArray[mt_rand(0, 63)];
 	}
 	
 	echo "$token";
