@@ -26,6 +26,8 @@
 				top: 50%;
 				left: 50%;
 				margin-right: -50%;
+				-webkit-transition: height 0.5s;
+				transition: height 0.5s;
 				transform: translate(-50%, -50%)
 			}
 			
@@ -83,6 +85,23 @@
 				border-color: #0080FF;
 			}
 			
+			.signup{
+				display:none;
+				margin-right: -50%;
+				left:50%;
+				transform: translate(23%, 0%);
+			}
+			
+			.signup input{
+				text-align: center;
+			}
+			
+			.signup .submit{
+				float:center;
+				display: inline-block;
+				margin-left:4.7%
+			}
+			
 			body{
 				background: #303030;
 			}
@@ -93,23 +112,59 @@
 	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha512.js"></script>
 	
 	<script type="text/javascript">
+		var isLoginMode = true;
+		
 		function signUp(){
 			
 		}
 		
 		function login(){
 			var loginForm = document.forms["loginForm"];
-			var id = loginForm["id"];
-			if(id == ""){
+			var id = loginForm["id"].value;
+			var pw = loginForm["pw"].value;
+			if(id == "" || id == null){
 				alert("ID를 입력해주세요!");
 				return false;
 			}
-			if(loginForm["pw"] == ""){
+			if(pw == "" || pw == null){
 				alert("비밀번호를 입력해주세요!");
 				return false;
 			}
-			loginForm["pw"] = CryptoJS.SHA512(loginForm["pw"]);
+			loginForm["pw"] = CryptoJS.SHA512(pw);
+			pw = null;
+			id = null;
 		}
+		
+		function showSignUp(){
+			var p = document.getElementsByTagName("p")[0];
+			var h1 = document.getElementsByTagName("h1")[0];
+			if(!isLoginMode){
+				
+				document.getElementsByTagName("section")[0].style.height="250px";
+				document.getElementsByName("loginForm")[0].style.display = "inherit";
+				document.getElementsByName("signupForm")[0].style.display ="none";
+				document.getElementById("signUp").innerHTML = "If you don't have an account, create one!";
+				isLoginMode = true;
+				p.style.textAlign = "left";
+				h1.style.textAlign = "left";
+				h1.innerHTML = "Login!"
+				p.innerHTML = "ID와 비밀번호를 입력하여 주십시오!"
+				
+			}else{
+				
+				document.getElementsByTagName("section")[0].style.height="340px";
+				document.getElementsByName("loginForm")[0].style.display = "none";
+				document.getElementsByName("signupForm")[0].style.display ="inherit";
+				document.getElementById("signUp").innerHTML = "If you have an account, login here!";
+				p.style.textAlign = "center";
+				h1.style.textAlign = "center";
+				p.innerHTML = "간단한 회원가입 절차를 따라주십시오!"
+				h1.innerHTML = "Sign Up!";
+				isLoginMode = false;
+				
+			}
+		}
+		
 	</script>
 	
 	<body>
@@ -123,14 +178,20 @@
 				<input type="submit" class="submit" value="Login!">
 			</form>
 			
-			<form action="signup.php" method="POST" accept-charset="UTF-8" autocomplete="off" style="display:none;">
+			<form name="signupForm" class="signup" action="signup.php" method="POST" accept-charset="UTF-8" autocomplete="off">
+				<input type="text" name="name" placeholder="Your name">
+				<br>
 				<input type="text" name="id" placeholder="Username">
 				<br>
 				<input type="text" name="email" placeholder="email">
 				<br>
+				<input type="password" nmae="password" placeholder="Password">
+				<br>
 				<input type="submit" class="submit" value="Sign up!">
 			</form>
 			<a href = "find.html">Forgot your username / password?</a>
+			<br>
+			<a id="signUp" href="javascript:showSignUp()">If you don't have an account, create one!</a>
 		</section>
 	</body>
 </html>
