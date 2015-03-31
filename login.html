@@ -16,6 +16,23 @@
 				font-family: "NanumGothic";
 				src: url("resources/NanumGothic.ttf");
 			}
+			header{
+				display: inline-block;
+			}
+			
+			header a{
+				font-family : "Ubuntu";
+				font-size: 15pt;
+				color: #0080FF;
+				text-align: center;
+				text-decoration: none;
+				border: 3px solid #0080FF;
+			}
+			
+			header a:hover{
+				color: #FF8000;
+				border: 3px dashed #FF8000;
+			}
 			
 			section{
 				width: 450px;
@@ -85,6 +102,10 @@
 				border-color: #0080FF;
 			}
 			
+			form .submit:hover{
+				border-color: #FFFFFF;
+			}
+			
 			.signup{
 				display:none;
 				margin-right: -50%;
@@ -94,12 +115,29 @@
 			
 			.signup input{
 				text-align: center;
+				padding-bottom: 5px;
 			}
 			
 			.signup .submit{
-				float:center;
+				float: center;
 				display: inline-block;
-				margin-left:4.7%
+				margin-left:4.7%;
+				margin-top: 5px;
+			}
+			
+			.stext{
+				font-family: "NanumGothic";
+				font-size: 12pt;
+				float: center;
+				margin-left:3.45%;
+				color: #303030;
+				background: #0080FF;
+				border: 3px solid #303030;
+			}
+			
+			.stext:hover{
+				color:#303030;
+				border-color: #FFFFFF;
 			}
 			
 			body{
@@ -141,33 +179,48 @@
 			if(!isLoginMode){
 				
 				document.getElementsByTagName("section")[0].style.height="250px";
+				
 				document.getElementsByName("loginForm")[0].style.display = "inherit";
+				document.getElementById("forgot").style.display = "inline";
 				document.getElementsByName("signupForm")[0].style.display ="none";
+				
 				document.getElementById("signUp").innerHTML = "If you don't have an account, create one!";
-				isLoginMode = true;
+				
 				p.style.textAlign = "left";
 				h1.style.textAlign = "left";
+				
 				h1.innerHTML = "Login!"
 				p.innerHTML = "ID와 비밀번호를 입력하여 주십시오!"
 				
+				isLoginMode = true;
 			}else{
 				
-				document.getElementsByTagName("section")[0].style.height="340px";
-				document.getElementsByName("loginForm")[0].style.display = "none";
-				document.getElementsByName("signupForm")[0].style.display ="inherit";
+				document.getElementsByTagName("section")[0].style.height="360px";
 				document.getElementById("signUp").innerHTML = "If you have an account, login here!";
+				
+				document.getElementById("forgot").style.display = "none";
+				document.getElementsByName("loginForm")[0].style.display = "none";
+				
 				p.style.textAlign = "center";
 				h1.style.textAlign = "center";
+				
 				p.innerHTML = "간단한 회원가입 절차를 따라주십시오!"
 				h1.innerHTML = "Sign Up!";
-				isLoginMode = false;
 				
+				setTimeout(function(){
+					document.getElementsByName("signupForm")[0].style.display ="inherit";
+					isLoginMode = false;
+				}, 100);
 			}
 		}
 		
 	</script>
 	
 	<body>
+		<header id="baggu">
+			<a href="index.html">&lt&lt</a>
+		</header>
+		
 		<section id="login">
 			<h1>Login!</h1>
 			<p>ID와 비밀번호를 입력하여 주십시오!</p>
@@ -178,18 +231,20 @@
 				<input type="submit" class="submit" value="Login!">
 			</form>
 			
-			<form name="signupForm" class="signup" action="signup.php" method="POST" accept-charset="UTF-8" autocomplete="off">
+			<form name="signupForm" class="signup" onsubmit="signup.php" method="POST" accept-charset="UTF-8" autocomplete="off">
 				<input type="text" name="name" placeholder="Your name">
 				<br>
 				<input type="text" name="id" placeholder="Username">
 				<br>
-				<input type="text" name="email" placeholder="email">
+				<input spellcheck="false" type="email" name="email" placeholder="email">
 				<br>
-				<input type="password" nmae="password" placeholder="Password">
+				<input type="password" name="password" placeholder="Password">
+				<br>
+				<a target="_blank" href="check_id.php" class="stext">Check ur ID!</a>
 				<br>
 				<input type="submit" class="submit" value="Sign up!">
 			</form>
-			<a href = "find.html">Forgot your username / password?</a>
+			<a id="forgot" href = "find.html">Forgot your username / password?</a>
 			<br>
 			<a id="signUp" href="javascript:showSignUp()">If you don't have an account, create one!</a>
 		</section>
