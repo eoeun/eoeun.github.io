@@ -153,7 +153,16 @@
 		var isLoginMode = true;
 		
 		function signUp(){
-			
+			var signupForm = document.forms["signupForm"];
+			var id = loginForm["id"].value;
+			if(id == "" || id == null){
+				alert("ID를 입력해주세요!");
+				return false;
+			}
+			if(pw == "" || pw == null){
+				alert("비밀번호를 입력해주세요!");
+				return false;
+			}
 		}
 		
 		function login(){

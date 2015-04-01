@@ -29,7 +29,7 @@
 			return;
 		}
 		
-		for($i = 0; $i < 128; $i++){
+		for($i = 0; $i < 256; $i++){
 			$token .= $charArray[mt_rand(0, 63)];
 		}
 		
