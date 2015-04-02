@@ -25,10 +25,6 @@
 		$charArray = str_split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_");
 		$token = "";
 		
-		if($type === ""){
-			return;
-		}
-		
 		for($i = 0; $i < 256; $i++){
 			$token .= $charArray[mt_rand(0, 63)];
 		}
@@ -41,6 +37,7 @@
 		}
 		
 		session_start();
+		$_SEESION['id'] = $id;
 		$_SESSION['token'] = $token;
 		mysqli_close($mySQLConn);
 		
