@@ -27,7 +27,7 @@ function resizeScreen(){
 }
 
 function todaySet(){
-	read("count.txt", function(data){
+	/*read("count.txt", function(data){
 			var todayText = document.getElementById("today_text");
 			var time = new Date().getTime();
 			var t;
@@ -59,5 +59,8 @@ function todaySet(){
 			}else{
 				 document.getElementById("today_text").innerHTML = text;
 			}
-		});
+		});*/
+	$.ajax({
+		url: "count.php"
+	});
 }

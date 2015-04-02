@@ -228,6 +228,17 @@
 			}
 		}
 		
+		function chkId(){
+			$.ajax({
+				type: "POST",
+				url: "check_id.php",
+				dataType: "json",
+				data: {
+					id: document.forms["signupForm"]["id"].value
+				}
+			});
+		}
+		
 	</script>
 	
 	<body>
@@ -254,7 +265,8 @@
 				<br>
 				<input type="password" name="password" placeholder="Password">
 				<br>
-				<a target="_blank" href="check_id.php" class="stext">Check ur ID!</a>
+				<!-- <a target="_blank" href="check_id.php" class="stext">Check ur ID!</a> -->
+				<a href="javascript:chkId()" class="stext">Check ur ID!</a>
 				<br>
 				<input type="submit" class="submit" value="Sign up!">
 			</form>
