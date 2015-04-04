@@ -4,20 +4,12 @@
 	$email = $_POST['email'];
 	$pw = $_POST['pw'];
 
-	$query_id = "MYSQLID";
-	$query_pw = "MYSQLPW";
+	include "connect_mysql.php";
+	mysqli_select_db($mySQLConn, "secure_logins");
 	
-	$mySQLConn = new mysqli('localhost', $query_id, $query_pw, 'secure_logins');
+	$id_res = mysqli_query($mySQLConn, "SELECT * FROM members WHERE id = '$id'");
 	
-	if($mySQLConn->$connect_error){
-		echo "<script> alert(\"처리 중에 에러가 발생했습니다! (500 내부 서버 오류)\\r\\n고쳐질 때 까지 조금만 기다려주세요!\"); history.go(-1); </script>";
-		return;
-	}
-	
-	$id_res = $mySQLConn->query("SELECT * FROM members WHERE id = '$id'");
-	$id_row = $id_res->fetch_array(MYSQLI_ASSOC);
-	
-	if($row !== null){
+	if(mysqli_num_rows($id_res) > 0){
 		echo "<script> alert(\"기왕이면 Check Ur ID 한번 좀 눌러주시죠?\\r\\n중복 아이디 발견입니다.\"); history.go(-1);</script>";
 		mysqli_close($mySQLConn);
 		return;
@@ -29,10 +21,9 @@
 		return;
 	}
 	
-	$email_res = $mySQLConn->query("SELECT * FROM members WHERE email = '$email'");
-	$email_row = $email_res->fetch_array(MYSQLI_ASSOC);
+	$email_res = $mysqli_query($mySQLConn, "SELECT * FROM members WHERE email = '$email'");
 	
-	if($email_row !== null){
+	if(mysqli_num_rows($email_res) > 0){
 		echo "<script> alert(\"언젠가 이 이메일로 가입해보시지 않았나요?\\r\\n이 이메일 주소는 가입되어있는 주소네요!\"); history.go(-1);</script>";
 		mysqli_close($mySQLConn);
 		return;
@@ -44,10 +35,9 @@
 		return;
 	}
 	
-	$name_res = $mySQLConn->query("SELECT * FROM members WHERE name= '$name'");
-	$name_row = $name_res->fetch_array(MYSQLI_ASSOC);
+	$name_res = mysqli_query($mySQLConn, "SELECT * FROM members WHERE name= '$name'");
 	
-	if($name_row !== null){
+	if(mysqli_num_rows($name_res) > 0){
 		echo "<script> alert(\"축하드립니다! 동명이인 발견!\\r\\n근데 헷갈릴 수도 있을거 같은데 죄송하지만 뒤에 1이라도 붙여보시겠어요?\"); history.go(-1);</script>";
 		mysqli_close($mySQLConn);
 		return;
@@ -59,8 +49,14 @@
 		return;
 	}
 	
-	if(mb_strlen($pw) < 7){
+	/*if(mb_strlen($pw) < 7){
 		echo "<script> alert(\"보안이 위험하다!\\r\\n비밀번호는 7자 이상은 되어야 그나마 안전하다고 생각하시지 않으신가요?\"); history.go(-1); </script>";
+		mysqli_close($mySQLConn);
+		return;
+	}*/
+	//when pw = ""
+	if($pw == "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"){
+		echo "<script> alert(\"자바스크립트 편집해서 비밀번호가지고 장난치지 말아주실래요?\"); history.go(-1); </script>";
 		mysqli_close($mySQLConn);
 		return;
 	}
@@ -68,7 +64,7 @@
 	$pw = hash("sha512", $pw, false);
 	
 	$class = UserClass::EMAIL_NOT_VERIFIED;
-	$mySQLConn->query("INSERT INTO members (id, name, email, pw, class) VALUES ('$id', '$name', '$email', '$pw', '$class')");
+	mysqli_query($mySQLConn, "INSERT INTO members (id, name, email, pw, class) VALUES ('$id', '$name', '$email', '$pw', '$class')");
 	
 	mysqli_close($mySQLConn);
 	

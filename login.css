@@ -1,0 +1,153 @@
+@font-face {
+	font-family: "Ubuntu";
+	src: url("resources/Ubuntu-R.ttf");
+
+}
+@font-face {
+	font-family: "NanumGothic";
+	src: url("resources/NanumGothic.ttf");
+}
+header{
+	display: inline;
+	position: absolute;
+}
+
+header a{
+	font-family : "Ubuntu";
+	font-size: 15pt;
+	color: #0080FF;
+	text-align: center;
+	text-decoration: none;
+	border: 3px solid #0080FF;
+}
+
+header a:hover{
+	color: #FF8000;
+	border: 3px dashed #FF8000;
+}
+
+section{
+	width: 450px;
+	height: 100%;
+	display: table;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#sectionWrapper{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#loginWrapper{
+	width: 450px;
+	height: 250px;
+	display: inline-block;
+	/*border: 3px dashed #0080FF;*/
+	-webkit-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+#loginWrapper h1{
+	font-family : "Ubuntu";
+	font-size: 30pt;
+	color: #0080FF;
+	text-align: center;
+}
+
+#loginWrapper p{
+	font-family : "NanumGothic";
+	font-size: 10pt;
+	text-align: center;
+	color: #707070;
+}
+
+.loginText{
+	font-family : "NanumGothic";
+	text-align: left;
+	font-size: 10pt;
+	text-decoration: none;
+	color: #707070;
+}
+
+.loginText:hover{
+	color: #0080FF;
+}
+
+form input{
+	font-family: "NanumGothic";
+	text-align: center;
+	display: inline-block;
+	font-size: 12pt;
+	color: #FFFFFF;
+	background:#303030;
+	border: 3px solid #707070;
+	width: 100%;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+form input:focus {
+	border-color: #0080FF;
+ }
+
+form .submit{
+	text-align: center;
+	color: #303030;
+	background: #0080FF;
+	border: 3px solid #303030;
+}
+
+form .submit:focus{
+	border-color: #0080FF;
+}
+
+form .submit:hover{
+	border-color: #FFFFFF;
+}
+
+form{
+	width: 100%;
+}
+
+.signup{
+	display:none;
+}
+
+.signup .submit{
+	float: center;
+	display: block;
+	width: 100%;
+}
+
+.signup a{
+	font-family: "NanumGothic";
+	font-size: 12pt;
+	text-decoration: none;
+	text-align: center;
+	color: #303030;
+	background: #0080FF;
+	display: block;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: solid 3px #303030;
+}
+
+.signup a:hover{
+	color: #303030;
+	border: solid 3px #FFFFFF;
+}
+
+body{
+	background: #303030;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+html{
+	width: 100%;
+	height: 100%;
+}
