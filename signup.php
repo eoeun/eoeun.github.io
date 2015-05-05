@@ -7,6 +7,13 @@
 	include "connect_mysql.php";
 	mysqli_select_db($mySQLConn, "secure_logins");
 	
+	$id_pattern = "/[^0-9a-zA-Z\-_]+/";
+	
+	if(preg_match($id_pattern, $id)){
+		echo "<script> alert(\"ID에 사용불가한 문자가 들어있습니다!\"); history.go(-1);</script>";
+		return;
+	}
+	
 	$id_res = mysqli_query($mySQLConn, "SELECT * FROM members WHERE id = '$id'");
 	
 	if(mysqli_num_rows($id_res) > 0){
